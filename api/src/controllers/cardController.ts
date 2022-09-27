@@ -6,7 +6,7 @@ export const getCards = async (_req: Request, res: Response) => {
         const response = await axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php', {
             params : {
                 offset: 0,
-                num: 10000
+                num: 200,
             }
         });
         
@@ -16,6 +16,7 @@ export const getCards = async (_req: Request, res: Response) => {
                 name: card.name,
                 type: card.type,
                 img: card.card_images[0].image_url,
+                race: card.race
             }
         });
         res.status(200).json(cards);
@@ -53,5 +54,3 @@ export const getCard = async (req: Request, res: Response) => {
         console.log(error);
     }
 };
-
-
