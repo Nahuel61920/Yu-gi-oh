@@ -9,7 +9,7 @@ const port = 3000;
 
 app.get('/', (_req, res) => {
     console.log('GET /');
-    res.send('Hello World!');
+    res.send('Yu-Gi-Oh APP');
 });
 
 app.use('/card', card);
