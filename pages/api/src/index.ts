@@ -4,7 +4,7 @@ import card from "./routes/card";
 import races from "./routes/races";
 import types from "./routes/types";
 
-const cors = require('cors');
+var cors = require('cors')
 
 const app = express();
 app.use(express.json()); // middleware que transforma el body en un objeto json
