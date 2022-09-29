@@ -31,12 +31,12 @@ const Prev: NextPage = () => {
                                 </div>
                             )
                         }
-
                         <h3>[ {preview.type.split(" ").join(" / ")} ]</h3>
+                        <button className={prev.btn}>Add to Deck</button>
                     </div>
                 ) : (
                     <div className={styles.prevContainer}>
-                        <img src="https://www.elbosqueprohibido.com/wp-content/uploads/2020/04/Fundas-Tugioh-Reverso.jpg" alt="preview" />
+                        <img src="https://www.elbosqueprohibido.com/wp-content/uploads/2020/04/Fundas-Tugioh-Reverso.jpg" alt="loading" />
                     </div>
                 )
             }
