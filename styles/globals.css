@@ -15,6 +15,57 @@ a {
   box-sizing: border-box;
 }
 
+.prev {
+  width: 30px;
+  height: 30px;
+  margin-bottom: 1rem;
+}
+
+.WIND{
+  background-image: url(../public/assets/attribute_icon_wind.png);
+  background-size: cover;
+}
+
+.FIRE{
+  background-image: url(../public/assets/attribute_icon_fire.png);
+  background-size: cover;
+}
+
+.WATER{
+  background-image: url(../public/assets/attribute_icon_water.png);
+  background-size: cover;
+}
+
+.LIGHT{
+  background-image: url(../public/assets/attribute_icon_light.png);
+  background-size: cover;
+}
+
+.DARK{
+  background-image: url(../public/assets/attribute_icon_dark.png);
+  background-size: cover;
+}
+
+.EARTH{
+  background-image: url(../public/assets/attribute_icon_earth.png);
+  background-size: cover;
+}
+
+.DIVINE{
+  background-image: url(../public/assets/attribute_icon_divine.png);
+  background-size: cover;
+}
+
+.Trap-Card{
+  background-image: url(../public/assets/attribute_icon_trap.png);
+  background-size: cover;
+}
+
+.Spell-Card{
+  background-image: url(../public/assets/attribute_icon_spell.png);
+  background-size: cover;
+}
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;

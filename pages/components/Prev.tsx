@@ -1,0 +1,46 @@
+import styles from '../../styles/Home.module.css';
+import prev from '../../styles/prev.module.css';
+import { useDispatch, useSelector } from "react-redux";
+import type { NextPage } from 'next'
+
+const Prev: NextPage = () => {
+
+    const { preview } = useSelector(
+        (state: any) => state.card
+    );
+    return (
+        <div className={styles.gridPrev}>
+            {
+                preview.name ? (
+                    <div className={styles.prevContainer}>
+                        <img src={preview.img} alt={preview.name} />
+                        <h3>Name: {preview.name}</h3>
+                        {
+                            preview.attribute ? (
+                                <div className={prev.containerAttribute}>
+                                    <div className={"prev " + preview.attribute}></div>
+                                    <div>
+                                        <span className={prev.attributes}>{preview.attribute.toLowerCase()} - </span><span className={prev.attributes}>{preview.race}</span>
+                                    </div>
+                                </div>
+                            ) : (
+                                <div className={prev.containerAttribute}>
+                                    <div className={"prev " + preview.type.split(" ").join("-")}></div>
+                                    <span className={prev.attributes}>{preview.race}</span>
+                                </div>
+                            )
+                        }
+
+                        <h3>[ {preview.type.split(" ").join(" / ")} ]</h3>
+                    </div>
+                ) : (
+                    <div className={styles.prevContainer}>
+                        <h1>Selecciona una carta</h1>
+                    </div>
+                )
+            }
+        </div>
+    )
+}
+
+export default Prev

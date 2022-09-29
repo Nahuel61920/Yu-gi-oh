@@ -16,7 +16,8 @@ export const getCards = async (_req: Request, res: Response) => {
                 name: card.name,
                 type: card.type,
                 img: card.card_images[0].image_url,
-                race: card.race
+                race: card.race,
+                attribute: card.attribute
             }
         });
         res.status(200).json(cards);
