@@ -10,6 +10,7 @@ const Prev: NextPage = () => {
     );
     return (
         <div className={styles.gridPrev}>
+            <div>
             {
                 preview.name ? (
                     <div className={styles.prevContainer}>
@@ -39,6 +40,7 @@ const Prev: NextPage = () => {
                     </div>
                 )
             }
+            </div>
         </div>
     )
 }
