@@ -35,7 +35,7 @@ const Prev: NextPage = () => {
                     </div>
                 ) : (
                     <div className={styles.prevContainer}>
-                        <h1>Selecciona una carta</h1>
+                        <img src="https://www.elbosqueprohibido.com/wp-content/uploads/2020/04/Fundas-Tugioh-Reverso.jpg" alt="preview" />
                     </div>
                 )
             }

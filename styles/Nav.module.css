@@ -1,0 +1,17 @@
+.navContainer{
+    width: 100%;
+    height: 100px;
+    background: url(../public/assets/nav.png);
+    margin: 0;
+    padding: 0 3rem;
+    display: flex;
+    align-items: center;
+}
+
+.navLogo{
+    padding-top: 2rem;
+    width: 170px;
+    height: 50px;
+    background-image: url(../public/assets/logo.png);
+    background-size: cover;
+}
