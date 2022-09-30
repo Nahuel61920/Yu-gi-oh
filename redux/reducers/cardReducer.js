@@ -17,6 +17,17 @@ export const cardSlice = createSlice({
     selectCardPrev: (state, { type, payload }) => {
       state.preview = payload;
       console.log(state.preview)
+    },
+    nameCard: (state, { type, payload }) => {
+      let searchCard =
+        payload === ""
+          ? state.cardsFiltered
+          : state.cards.filter((cardsFiltered) => {
+              return cardsFiltered.name
+                .toLowerCase()
+                .includes(payload.toLowerCase());
+            });
+      state.cards = searchCard;
     }
   },
 });
@@ -24,7 +35,8 @@ export const cardSlice = createSlice({
 
 export const {
     setCardList,
-    selectCardPrev
+    selectCardPrev,
+    nameCard
 } = cardSlice.actions;
 
 export default cardSlice.reducer;
@@ -41,5 +53,13 @@ export const fetchCard = () => (dispatch) => {
 export const selectCard = (id) =>  (dispatch) => {
   dispatch(selectCardPrev(id));
 }
+
+export const searchName = (name) => (dispatch) => {
+  try {
+    dispatch(nameCard(name));
+  } catch (error) {
+    console.log(error);
+  }
+};
 
 
