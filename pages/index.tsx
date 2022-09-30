@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import type { NextPage } from 'next'
 import Head from 'next/head'
@@ -9,6 +9,7 @@ import {
 import Card from "./components/Card";
 import Prev from "./components/Prev";
 import Nav from "./components/Nav";
+import Filter from "./components/Filter";
 
 const Home: NextPage = () => {
 
@@ -30,9 +31,7 @@ const Home: NextPage = () => {
       </Head>
       <Nav />
       <main className={styles.main}>
-        <h1 className={styles.title}>
-          Yu-gi-oh App
-        </h1>
+        <Filter/>
         {
           cards.length ? (
             <div className={styles.grid}>
