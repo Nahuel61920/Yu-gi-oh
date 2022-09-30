@@ -104,41 +104,41 @@ export const raceMonster = [
 export const raceSpell = [
     {
         "id": 1,
-        "name": "Normal"
+        "name": "Normal Spell"
     },
     {
         "id": 2,
-        "name": "Field"
+        "name": "Field Spell"
     },
     {
         "id": 3,
-        "name": "Equip"
+        "name": "Equip Spell"
     },
     {
         "id": 4,
-        "name": "Continuous"
+        "name": "Continuous Spell"
     },
     {
         "id": 5,
-        "name": "Quick-Play"
+        "name": "Quick-Play Spell"
     },
     {
         "id": 6,
-        "name": "Ritual"
+        "name": "Ritual Spell"
     }
 ]
 
 export const raceTrap = [
     {
         "id": 1,
-        "name": "Normal"
+        "name": "Normal Trap"
     },
     {
         "id": 2,
-        "name": "Continuous"
+        "name": "Continuous Trap"
     },
     {
         "id": 3,
-        "name": "Counter"
+        "name": "Counter Trap"
     }
 ]

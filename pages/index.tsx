@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { Key, useEffect} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import type { NextPage } from 'next'
 import Head from 'next/head'
@@ -38,7 +38,7 @@ const Home: NextPage = () => {
 
               <Prev />
               <div className={styles.gridCard}>
-                {cards.map((card: any) => (
+                {cards.map((card: { id: Key | null | undefined; }) => (
                   <Card key={card.id} card={card} />
                 ))
                 }

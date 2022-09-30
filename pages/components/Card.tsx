@@ -1,5 +1,5 @@
 import styles from '../../styles/Home.module.css';
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import type { NextPage } from 'next';
 import {
     selectCard,

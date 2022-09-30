@@ -11,13 +11,34 @@ export const getCards = async (_req: Request, res: Response) => {
         });
         
         const cards = response.data.data.map((card: any) => {
-            return {
+
+            let cardData = {
                 id: card.id,
                 name: card.name,
                 type: card.type,
+                atk: card.atk || null,
+                def: card.def || null,
+                level: card.level || null,
+                attribute: card.attribute,
                 img: card.card_images[0].image_url,
+            }
+
+            if(card.type === "Spell Card") {
+                return  {
+                    ...cardData,
+                    race: card.race + " Spell"
+                }
+            } else if (card.type === "Trap Card") {
+                return  {
+                    ...cardData,
+                    race: card.race + " Trap",
+                }
+            }
+                
+
+            return {
+                ...cardData,
                 race: card.race,
-                attribute: card.attribute
             }
         });
         res.status(200).json(cards);

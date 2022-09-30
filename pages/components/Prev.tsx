@@ -27,7 +27,15 @@ const Prev: NextPage = () => {
                             ) : (
                                 <div className={prev.containerAttribute}>
                                     <div className={"prev " + preview.type.split(" ").join("-")}></div>
-                                    <span className={prev.attributes}>{preview.race}</span>
+                                    <span className={prev.attributes}>
+                                        {
+                                            preview.type === "Spell Card" ? (
+                                                preview.race.split("Spell").join("")
+                                            ) : (
+                                                preview.race.split("Trap").join("")
+                                            )
+                                        }
+                                    </span>
                                 </div>
                             )
                         }
