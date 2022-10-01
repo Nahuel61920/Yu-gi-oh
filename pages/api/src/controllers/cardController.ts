@@ -4,10 +4,10 @@ const axios = require('axios');
 export const getCards = async (_req: Request, res: Response) => {
     try {
         const response = await axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php', {
-            params : {
+            /* params : {
                 offset: 0,
-                num: 200,
-            }
+                num: 2000,
+            } */
         });
         
         const cards = response.data.data.map((card: any) => {

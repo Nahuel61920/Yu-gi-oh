@@ -1,26 +1,40 @@
-import { Key, useEffect} from "react";
+import { Key, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import type { NextPage } from 'next'
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
-import {
-  fetchCard,
-} from "../redux/reducers/cardReducer";
+import type { NextPage } from "next";
+import Head from "next/head";
+import styles from "../styles/Home.module.css";
+import { fetchCard } from "../redux/reducers/cardReducer";
 import Card from "./components/Card";
 import Prev from "./components/Prev";
 import Nav from "./components/Nav";
 import Filter from "./components/Filter";
+import ReactPaginate from 'react-paginate';
 
 const Home: NextPage = () => {
-
   const dispatch: any = useDispatch();
-  const { cards } = useSelector(
-    (state: any) => state.card
-  );
+  const { cards } = useSelector((state: any) => state.card);
+  const [currentCard, setCurrentCard] = useState([]);
+  const [pageCount, setPageCount] = useState(0); // number of pages
+  const [itemOffset, setItemOffset] = useState(0);  // offset for the current page
+  const itemsPerPage: number = 100;
 
   useEffect(() => {
     dispatch(fetchCard());
   }, [dispatch]);
+
+  useEffect(() => {
+    if (cards) {
+      setCurrentCard(cards.slice(itemOffset, itemOffset + itemsPerPage));
+      setPageCount(Math.ceil(cards.length / itemsPerPage));
+    } else {
+      setCurrentCard([]);
+    }
+  }, [cards, itemOffset, itemsPerPage]);
+
+  const handlePageClick = (e: any) => {
+    const newOffset = (e.selected * itemsPerPage) % cards.length;
+    setItemOffset(newOffset);
+  };
 
   return (
     <div className={styles.container}>
@@ -31,26 +45,43 @@ const Home: NextPage = () => {
       </Head>
       <Nav />
       <main className={styles.main}>
-        <Filter/>
-        {
-          cards.length ? (
+        {cards.length ? (
+          <>
+            <Filter setItemOffset={setItemOffset}/>
             <div className={styles.grid}>
-
-              <Prev />
+              <Prev/>
               <div className={styles.gridCard}>
-                {cards.map((card: { id: Key | null | undefined; }) => (
-                  <Card key={card.id} card={card} />
-                ))
-                }
+                  {currentCard.map((card: { id: Key | null | undefined }) => (
+                    <Card key={card.id} card={card} />
+                  ))}
               </div>
             </div>
-          ) : (
-            <img src="https://i.giphy.com/media/TaqwJP3Pyu0Ja/giphy.webp" alt="loading" />
-          )
-        }
+            <ReactPaginate
+              breakLabel="..."
+              nextLabel=">"
+              onPageChange={handlePageClick}
+              pageRangeDisplayed={3}
+              marginPagesDisplayed={2}
+              pageCount={pageCount}
+              previousLabel="<"
+              containerClassName={styles.pagination}
+              pageClassName={styles.pageNum}
+              activeClassName={styles.active}
+              previousLinkClassName={styles.pageNum}
+              nextLinkClassName={styles.pageNum}
+              activeLinkClassName={styles.active}
+              disabledClassName={styles.disabled}
+            />
+          </>
+        ) : (
+          <img
+            src="https://i.giphy.com/media/TaqwJP3Pyu0Ja/giphy.webp"
+            alt="loading"
+          />
+        )}
       </main>
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

@@ -14,8 +14,7 @@ import {
     sortLevel
 } from "../../redux/reducers/cardReducer";
 
-
-function Filter() {
+function Filter({setItemOffset}: any) {
 
     const dispatch: any = useDispatch();
     const { types, raceMons, raceSpell, raceTrap } = useSelector(
@@ -32,36 +31,43 @@ function Filter() {
     function handleSubmitType(e: string) {
         let type = e.toString();
         dispatch(typesFilter(type));
+        setItemOffset(0);
     }
 
     function handleSubmitRaceMonster(e: string) {
         let race = e.toString();
         dispatch(racesMonsterFilter(race));
+        setItemOffset(0);
     }
 
     function handleSubmitRaceSpell(e: string) {
         let race = e.toString();
         dispatch(racesSpellFilter(race));
+        setItemOffset(0);
     }
 
     function handleSubmitRaceTrap(e: string) {
         let race = e.toString();
         dispatch(racesTrapFilter(race));
+        setItemOffset(0);
     }
 
     function handleSortDef(e: any) {
         e.preventDefault();
         dispatch(sortDef(e.target.value));
+        setItemOffset(0);
     }
     
     function handleSortAtk(e: any) {
         e.preventDefault();
         dispatch(sortAtk(e.target.value));
+        setItemOffset(0);
     }
 
     function handleSortLevel(e: any) {
         e.preventDefault();
         dispatch(sortLevel(e.target.value));
+        setItemOffset(0);
     }
 
     return (

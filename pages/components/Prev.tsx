@@ -14,7 +14,7 @@ const Prev: NextPage = () => {
             {
                 preview.name ? (
                     <div className={styles.prevContainer}>
-                        <img src={preview.img} alt={preview.name} />
+                        <img src={preview.img} alt={preview.name} className={preview.name? prev.show : prev.hide}/>
                         <h3>Name: {preview.name}</h3>
                         {
                             preview.attribute ? (
