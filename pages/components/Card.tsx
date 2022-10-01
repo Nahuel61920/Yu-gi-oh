@@ -15,7 +15,7 @@ const Card: NextPage = ({ card }: any) => {
 
     return (
         <div className={styles.card}>
-            <img src={card.img} alt={card.name} onClick={handlePreview}/>
+            <img src={card.img_small} alt={card.name} onClick={handlePreview}/>
         </div>
     )
 }

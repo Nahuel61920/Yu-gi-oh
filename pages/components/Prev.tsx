@@ -1,10 +1,14 @@
 import styles from '../../styles/Home.module.css';
 import prev from '../../styles/prev.module.css';
+import {
+    fetchDetail
+} from "../../redux/reducers/cardReducer";
 import { useDispatch, useSelector } from "react-redux";
-import type { NextPage } from 'next'
+import type { NextPage } from 'next';
+import Link from 'next/link';
 
 const Prev: NextPage = () => {
-
+    const dispatch: any = useDispatch();
     const { preview } = useSelector(
         (state: any) => state.card
     );
@@ -40,7 +44,9 @@ const Prev: NextPage = () => {
                             )
                         }
                         <h3>[ {preview.type.split(" ").join(" / ")} ]</h3>
-                        <button className={prev.btn}>Add to Deck</button>
+                        <Link href={`/detail`} as={`/${preview.id}`}>
+                            <button className={prev.btn} onClick={() => dispatch(fetchDetail(preview.id))}>Detail</button>
+                        </Link>
                     </div>
                 ) : (
                     <div className={styles.prevContainer}>

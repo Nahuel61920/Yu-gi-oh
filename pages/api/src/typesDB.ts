@@ -9,42 +9,34 @@ export const types = [
     },
     {
         "id": 3,
-        "name": "Flip Tuner Effect Monster"
-    },
-    {
-        "id": 4,
-        "name": "Flip Tuner Effect Monster"
-    },
-    {
-        "id": 5,
         "name": "Gemini Monster"
     },
     {
-        "id": 6,
+        "id": 4,
         "name": "Normal Monster"
     },
     {
-        "id": 7,
+        "id": 5,
         "name": "Normal Tuner Monster"
     },
     {
-        "id": 8,
+        "id": 6,
         "name": "Pendulum Effect Monster"
     },
     {
-        "id": 9,
+        "id": 7,
         "name": "Pendulum Flip Effect Monster"
     },
     {
-        "id": 10,
+        "id": 8,
         "name": "Pendulum Normal Monster"
     },
     {
-        "id": 11,
+        "id": 9,
         "name": "Pendulum Tuner Effect Monster"
     },
     {
-        "id": 12,
+        "id": 10,
         "name": "Ritual Effect Monster"
     },
     {

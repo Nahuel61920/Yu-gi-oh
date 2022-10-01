@@ -21,6 +21,7 @@ export const getCards = async (_req: Request, res: Response) => {
                 level: card.level || null,
                 attribute: card.attribute,
                 img: card.card_images[0].image_url,
+                img_small: card.card_images[0].image_url_small,
             }
 
             if(card.type === "Spell Card") {
@@ -67,6 +68,8 @@ export const getCard = async (req: Request, res: Response) => {
                 race: card.race,
                 attribute: card.attribute,
                 img: card.card_images[0].image_url,
+                card_sets: card.card_sets,
+                card_prices: card.card_prices
             }
         })
 

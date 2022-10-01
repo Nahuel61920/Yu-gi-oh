@@ -7,6 +7,7 @@ export const cardSlice = createSlice({
     cards: [],
     cardsFiltered: [],
     preview: [],
+    details: [],
     types: [],
     raceMons: [],
     raceSpell: [],
@@ -20,7 +21,9 @@ export const cardSlice = createSlice({
 
     selectCardPrev: (state, { type, payload }) => {
       state.preview = payload;
-      console.log(state.preview)
+    },
+    cardDetail: (state, { type, payload }) => {
+      state.details = payload;
     },
     nameCard: (state, { type, payload }) => {
       let searchCard =
@@ -151,6 +154,7 @@ export const {
     sortForDef,
     sortForAtk,
     sortForLevel,
+    cardDetail
 } = cardSlice.actions;
 
 export default cardSlice.reducer;
@@ -167,6 +171,15 @@ export const fetchCard = () => (dispatch) => {
 export const selectCard = (id) =>  (dispatch) => {
   dispatch(selectCardPrev(id));
 }
+
+export const fetchDetail = (id) => (dispatch) => {
+  axios
+    .get(`http://localhost:3001/card/${id}`)
+    .then((res) => {
+      dispatch(cardDetail(res.data));
+    })
+    .catch((err) => console.log(err));
+};
 
 export const searchName = (name) => (dispatch) => {
   try {
@@ -197,6 +210,8 @@ export const racesMonsterCard = (id) => (dispatch) => {
     })
     .catch((err) => console.log(err));
 };
+
+
 
 export const racesMonsterFilter = (payload) => (dispatch) => {
   dispatch(filterRacesMonster(payload));
