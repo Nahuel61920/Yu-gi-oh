@@ -4,25 +4,56 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 0 20px;
+    background: url(../public/assets/Detail.jpg);
+    margin: 0;
+    height: 100vh;
 }
 
 .card{
     display: flex;
     justify-content: space-between;
     gap: 40px;
+    padding: 1rem 5rem;
+}
+
+.card img{
+    width: 500px;
+    height: 600px;
+    object-fit: cover;
 }
 
 .cardInfo{
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px;
 }
 
 .containerAttribute{
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px;
+}
+
+.attributes{
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+.containerStat span{
+    font-weight: 600;
+}
+
+.containerStat{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.containerSet{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
 }

@@ -57,25 +57,44 @@ const Detail: NextPage = () => {
                             <h3>[ {details.type.split(" ").join(" / ")} ]</h3>
                             <p>{details.description}</p>
                             {
-                                details.def || details.atk ? (
-                                    <div className={deta.containerAttribute}>
+                                details.level ? (
+                                    <div className={deta.containerStat}>
                                         <div>
-                                            <span className={deta.attributes}>
+                                            <span className={deta.stats}>
                                                 ATK: {details.atk}
                                             </span>
                                             {" / "}
-                                            <span className={deta.attributes}>
+                                            <span className={deta.stats}>
                                                 DEF: {details.def}
                                             </span>
                                         </div>
                                         <div className={deta.level}>
-                                            <span className={deta.attributes}>
+                                            <span className={deta.stats}>
                                                 Level: {star}
                                             </span>
                                         </div>
                                     </div>
                                 ) : null
                             }
+                            <div className={deta.containerSet}>
+                                {
+                                    details.card_sets ? (
+                                        details.card_sets.map((set: any, index: number) => (
+                                            <div key={index} className={deta.set}>
+                                                <p className={deta.stats}>
+                                                    {set.set_name}
+                                                </p>
+                                                <p className={deta.stats}>
+                                                    {set.set_rarity}
+                                                </p>
+                                                <p className={deta.stats}>
+                                                    ${set.set_price}
+                                                </p>
+                                            </div>
+                                        ))
+                                    ) : null
+                                }
+                            </div>
                         </div>
                     </div>
                 ) : null
