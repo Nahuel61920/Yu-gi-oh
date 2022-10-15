@@ -19,7 +19,7 @@ function Nav() {
     <div className={styles.navContainer}>
       <nav className={styles.nav}>
         <div className={styles.navLogo}></div>
-        <div className={styles.searchBar}>
+        <form className={styles.searchBar}>
           <input
             type="text"
             placeholder="Search"
@@ -28,8 +28,12 @@ function Nav() {
               setName(e.target.value);
               handleSubmit(e.target.value);
             }}
+            className={styles.searchInput}
           />
-        </div>
+          <button type="submit" className={styles.searchBtn}>
+            🔍
+          </button>
+        </form>
       </nav>
     </div>
   )

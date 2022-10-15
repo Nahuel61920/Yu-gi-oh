@@ -28,7 +28,9 @@ const Detail: NextPage = () => {
             {
                 details.name ? (
                     <div className={deta.card}>
+                        <div className={deta.card__img}>
                         <img src={details.img} alt={details.name} />
+                        </div>
 
                         <div className={deta.cardInfo}>
                             <h2>{details.name}</h2>

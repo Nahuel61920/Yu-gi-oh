@@ -73,3 +73,16 @@ a {
   background-size: cover;
 }
 
+form:hover{
+  width: 300px;
+  cursor: pointer;
+}
+
+form:hover .searchInput{
+  display: block;
+}
+
+form:hover .searchBtn{
+  background: #07051a;
+  color: white;
+}

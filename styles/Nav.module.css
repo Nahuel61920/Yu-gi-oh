@@ -23,3 +23,55 @@
     background-image: url(../public/assets/logo.png);
     background-size: cover;
 }
+
+.searchBar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1rem;
+}
+
+.searchInput{
+    position: absolute;
+    right: 0;
+    width: 30%;;
+    height: 42.5px;
+    outline: 0;
+    border: 0;
+    display: none;
+    font-size: 1em;
+    border-radius: 11px;
+    padding: 0 20px;
+    transition: .3s ease;
+    margin-right: 3rem;
+}
+
+.searchBtn{
+    box-sizing: border-box;
+    padding: 10px;
+    width: 42.5px;
+    height: 42.5px;
+    position: absolute;
+    right: 0;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 1.2em;
+    transition: all 0.2s ease-in-out;
+    margin-right: 3rem;
+}
+
+
+.searchBar:hover{
+    width: 200px;
+    cursor: pointer;
+}
+
+.searchBar:hover .searchInput{
+    display: block;
+}
+
+.searchBar:hover button{
+    background: #07051a;
+    color: white;
+    cursor: pointer;
+}
