@@ -72,3 +72,152 @@ a {
   background-image: url(../public/assets/attribute_icon_spell.png);
   background-size: cover;
 }
+
+button {
+  color: rgb(0, 0, 0);
+  background: rgb(10, 128, 207);
+  font-family: inherit;
+  font-weight: 900;
+  font-size: 15px;
+  border: 3px solid black;
+  border-radius: 0.4em;
+  padding: 10px 20px;
+  box-shadow: 0.1em 0.1em;
+  cursor: pointer;
+}
+
+button:hover {
+  transform: translate(-0.05em, -0.05em);
+  box-shadow: 0.15em 0.15em;
+}
+
+button:active {
+  transform: translate(0.05em, 0.05em);
+  box-shadow: 0.05em 0.05em;
+ }
+
+.filter-modal {
+  position: fixed;
+    top: 0px;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+.filter-container{
+  width: 58%;  
+  background: #4261cf;
+  background: -moz-linear-gradient(45deg, #3023ae 0%, #53a0fd 100%);
+  background: -webkit-gradient(linear, left bottom, right top, color-stop(0%, #3023ae), color-stop(100%, #53a0fd));
+  background: -webkit-linear-gradient(45deg, #3023ae 0%, #53a0fd 100%);
+  background: -o-linear-gradient(45deg, #3023ae 0%, #53a0fd 100%);
+  background: -ms-linear-gradient(45deg, #3023ae 0%, #53a0fd 100%);
+  background: linear-gradient(45deg, #3023ae 0%, #53a0fd 100%);
+  border-radius: 0.4em;
+  padding: 20px;
+  height: 58%;
+  border: 3px solid black;
+}
+
+.filters{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.filters div{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+select{
+  font-weight: 800;
+  font-size: 14px;
+}
+
+.select-filter{
+  background: rgb(10, 128, 207);
+  border: 3px solid black;
+  border-radius: 0.4em;
+  box-shadow: 0.1em 0.1em;
+  cursor: pointer;
+  color: #000000;
+  display: inline-block;
+  line-height: 2.2em;
+  padding: 0 1.65rem 0 .25rem;
+  
+  margin: 0;      
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image:
+    linear-gradient(45deg, transparent 50%, rgb(10, 10, 31) 50%),
+    linear-gradient(135deg, rgb(10, 10, 31) 50%, transparent 50%),
+    linear-gradient(to right, rgb(13, 63, 83), rgb(13, 63, 83));
+  background-position:
+    calc(100% - 12px) calc(.9rem),
+    calc(100% - 7px) calc(.9rem),
+    100% 0;
+  background-size:
+    5px 5px,
+    5px 5px,
+    1.5rem 2.2rem;
+  background-repeat: no-repeat;
+}
+
+.select-filter:focus{
+    background-image:
+    linear-gradient(45deg, rgb(255, 254, 254) 50%, transparent 50%),
+      linear-gradient(135deg, transparent 50%, rgb(255, 255, 255) 50%),
+    linear-gradient(to right, rgb(19, 119, 158), rgb(19, 119, 158));
+    background-position:
+    calc(100% - 7px) 1em,
+      calc(100% - 12px) 1em,
+      100% 0;
+    background-size:
+      5px 5px,
+      5px 5px,
+      1.5rem 2.2rem;
+    background-repeat: no-repeat;
+    border-color: rgb(0, 0, 0);
+    outline: 0;
+}
+
+.sort{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}	
+
+.sorts{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 30px 0;
+}
+
+.sort-btn{
+  display: flex;
+  gap: 10px;
+}
+
+.btn-close{
+  height: auto;
+    display: flex;
+    justify-content: end;
+}
+
+.btn-close button{
+  padding: 4px 8px;
+
+}

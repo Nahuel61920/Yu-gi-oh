@@ -60,16 +60,11 @@
     height: 42.5px;
     position: absolute;
     right: 0;
-    border-radius: 10px;
     text-align: center;
     font-size: 1.2em;
     transition: all 0.2s ease-in-out;
     margin-right: 5rem;
-    color: rgb(0, 0, 0);
-    background: rgb(10, 128, 207);
-    border: 3px solid black;
-    border-radius: 0.4em;
-    box-shadow: 0.1em 0.1em;
+    padding: 0;
 }
 
 
@@ -82,11 +77,6 @@
     display: block;
 }
 
-.searchBar:hover button{
-    cursor: pointer;
-    transform: translate(-0.05em, -0.05em);
-    box-shadow: 0.15em 0.15em;
-}
 
 .icon{
  fill: #000000;

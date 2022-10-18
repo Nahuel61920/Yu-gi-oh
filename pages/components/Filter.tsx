@@ -11,11 +11,10 @@ import {
     racesTrapFilter,
     sortDef,
     sortAtk,
-    sortLevel
+    sortLevel,
 } from "../../redux/reducers/cardReducer";
 
-function Filter({setItemOffset}: any) {
-
+function Filter({ setItemOffset, setFilter }: any) {
     const dispatch: any = useDispatch();
     const { types, raceMons, raceSpell, raceTrap } = useSelector(
         (state: any) => state.card
@@ -52,117 +51,169 @@ function Filter({setItemOffset}: any) {
         setItemOffset(0);
     }
 
-    function handleSortDef(e: any) {
+    function handleSort(e: any) {
         e.preventDefault();
-        dispatch(sortDef(e.target.value));
-        setItemOffset(0);
-    }
-    
-    function handleSortAtk(e: any) {
-        e.preventDefault();
-        dispatch(sortAtk(e.target.value));
-        setItemOffset(0);
-    }
 
-    function handleSortLevel(e: any) {
-        e.preventDefault();
-        dispatch(sortLevel(e.target.value));
+        if (e.target.value === "minDef") {
+            dispatch(sortDef(e.target.value));
+        } else if (e.target.value === "maxDef") {
+            dispatch(sortDef(e.target.value));
+        } else if (e.target.value === "minAtk") {
+            dispatch(sortAtk(e.target.value));
+        } else if (e.target.value === "maxAtk") {
+            dispatch(sortAtk(e.target.value));
+        } else if (e.target.value === "minLevel") {
+            dispatch(sortLevel(e.target.value));
+        } else if (e.target.value === "maxLevel") {
+            dispatch(sortLevel(e.target.value));
+        }
+
         setItemOffset(0);
     }
 
     return (
-        <div>
-            <select
-                defaultValue="Types"
-                onChange={(e) => handleSubmitType(e.target.value)}
-            >
-                <option value="Types" disabled selected>
-                    Types
-                </option>
-                <option value="All">
-                    All
-                </option>
-                {types.map((type: any, key: number) => (
-                    <option key={key} value={type.name}>
-                        {type.name}
-                    </option>
-                ))}
-            </select>
+        <div className="filter-modal">
+            <div className="filter-container">
+                <div className="btn-close" >
+                    <button onClick={() => setFilter(false)}>X</button>
+                </div>
+                <div className="filter">
+                    <div className="filters">
+                        <div>
+                            <h3>Types</h3>
+                            <div className="filter-type">
+                                {types && (
+                                    <select
+                                        defaultValue="Types"
+                                        onChange={(e) => handleSubmitType(e.target.value)}
+                                        className="select-filter"
+                                    >
+                                        <option value="Types" disabled selected>
+                                            Types
+                                        </option>
+                                        <option value="All">All</option>
+                                        {types.map((type: any, key: number) => (
+                                            <option key={key} value={type.name}>
+                                                {type.name}
+                                            </option>
+                                        ))}
+                                    </select>
+                                )}
+                            </div>
+                        </div>
 
-            <select
-                defaultValue="Race-monster"
-                onChange={(e) => handleSubmitRaceMonster(e.target.value)}
-            >
-                <option value="Race-monster" disabled selected>
-                    Race Monster
-                </option>
-                <option value="All">
-                    All
-                </option>
-                {raceMons.map((race: any, key: number) => (
-                    <option key={key} value={race.name}>
-                        {race.name}
-                    </option>
-                ))}
-            </select>
+                        <div>
+                            <h3>Monster</h3>
+                            <div className="filter-monster">
+                                {raceMons && (
+                                    <select
+                                        defaultValue="Race-monster"
+                                        onChange={(e) => handleSubmitRaceMonster(e.target.value)}
+                                        className="select-filter"
+                                    >
+                                        <option value="Race-monster" disabled selected>
+                                            Race Monster
+                                        </option>
+                                        <option value="All">All</option>
+                                        {raceMons.map((race: any, key: number) => (
+                                            <option key={key} value={race.name}>
+                                                {race.name}
+                                            </option>
+                                        ))}
+                                    </select>
+                                )}
+                            </div>
+                        </div>
 
-            <select
-                defaultValue="Race-spell"
-                onChange={(e) => handleSubmitRaceSpell(e.target.value)}
-            >
-                <option value="Race-spell" disabled selected>
-                    Race Spell
-                </option>
-                <option value="All">
-                    All
-                </option>
-                {raceSpell.map((race: any, key: number) => (
-                    <option key={key} value={race.name}>
-                        {race.name.split("Spell").join("")}
-                    </option>
-                ))}
-            </select>
-            <select
-                defaultValue="Race-trap"
-                onChange={(e) => handleSubmitRaceTrap(e.target.value)}
-            >
-                <option value="Race-trap" disabled selected>
-                    Race Trap
-                </option>
-                <option value="All">
-                    All
-                </option>
-                {raceTrap.map((race: any, key: number) => (
-                    <option key={key} value={race.name}>
-                        {race.name.split("Trap").join("")}
-                    </option>
-                ))}
-            </select>
+                        <div>
+                            <h3>Spell</h3>
+                            <div className="filter-spell">
+                                {raceSpell && (
+                                    <select
+                                        defaultValue="Race-spell"
+                                        onChange={(e) => handleSubmitRaceSpell(e.target.value)}
+                                        className="select-filter"
+                                    >
+                                        <option value="Race-spell" disabled selected>
+                                            Race Spell
+                                        </option>
+                                        <option value="All">All</option>
+                                        {raceSpell.map((race: any, key: number) => (
+                                            <option key={key} value={race.name}>
+                                                {race.name.split("Spell").join("")}
+                                            </option>
+                                        ))}
+                                    </select>
+                                )}
+                            </div>
+                        </div>
 
-            <select defaultValue="Def" onChange={(e) => handleSortDef(e)}>
-                <option value="Def" disabled selected>
-                    Def
-                </option>
-                <option value="min">Min</option>
-                <option value="max">Max</option>
-            </select>
+                        <div>
+                            <h3>Trap</h3>
+                            <div className="filter-trap">
+                                {raceTrap && (
+                                    <select
+                                        defaultValue="Race-trap"
+                                        onChange={(e) => handleSubmitRaceTrap(e.target.value)}
+                                        className="select-filter"
+                                    >
+                                        <option value="Race-trap" disabled selected>
+                                            Race Trap
+                                        </option>
+                                        <option value="All">All</option>
+                                        {raceTrap.map((race: any, key: number) => (
+                                            <option key={key} value={race.name}>
+                                                {race.name.split("Trap").join("")}
+                                            </option>
+                                        ))}
+                                    </select>
+                                )}
+                            </div>
+                        </div>
+                    </div>
 
-            <select defaultValue="Atk" onChange={(e) => handleSortAtk(e)}>
-                <option value="Atk" disabled selected>
-                    Atk
-                </option>
-                <option value="min">Min</option>
-                <option value="max">Max</option>
-            </select>
-            <select defaultValue="Level" onChange={(e) => handleSortLevel(e)}>
-                <option value="Level" disabled selected>
-                    Level
-                </option>
-                <option value="min">Min</option>
-                <option value="max">Max</option>
-            </select>
+                    <div className="sort">
+                        <div className="sorts">
+                            <h3>Defense</h3>
+                            <div className="sort-btn">
+                                <button value="minDef" onClick={(e) => handleSort(e)}>
+                                    Min
+                                </button>
+                                <button value="maxDef" onClick={(e) => handleSort(e)}>
+                                    Max
+                                </button>
+                            </div>
+                        </div>
+
+
+                        <div className="sorts">
+                            <h3>Attack</h3>
+                            <div className="sort-btn">
+                                <button value="minAtk" onClick={(e) => handleSort(e)}>
+                                    Min
+                                </button>
+                                <button value="maxAtk" onClick={(e) => handleSort(e)}>
+                                    Max
+                                </button>
+                            </div>
+                        </div>
+
+                        <div className="sorts">
+                            <h3>Level</h3>
+                            <div className="sort-btn">
+                                <button value="minLevel" onClick={(e) => handleSort(e)}>
+                                    Min
+                                </button>
+                                <button value="maxLevel" onClick={(e) => handleSort(e)}>
+                                    Max
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    )
+    );
 }
 
-export default Filter
+export default Filter;

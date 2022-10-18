@@ -8,15 +8,20 @@ import Card from "./components/Card";
 import Prev from "./components/Prev";
 import Nav from "./components/Nav";
 import Filter from "./components/Filter";
-import ReactPaginate from 'react-paginate';
+import ReactPaginate from "react-paginate";
+
+import Image from "next/image";
+
 
 const Home: NextPage = () => {
   const dispatch: any = useDispatch();
   const { cards } = useSelector((state: any) => state.card);
   const [currentCard, setCurrentCard] = useState([]);
   const [pageCount, setPageCount] = useState(0); // number of pages
-  const [itemOffset, setItemOffset] = useState(0);  // offset for the current page
+  const [itemOffset, setItemOffset] = useState(0); // offset for the current page
   const itemsPerPage: number = 100;
+
+  const [filter, setFilter] = useState(false);
 
   useEffect(() => {
     dispatch(fetchCard());
@@ -47,13 +52,22 @@ const Home: NextPage = () => {
       <main className={styles.main}>
         {cards.length ? (
           <>
-            <Filter setItemOffset={setItemOffset}/>
+            {filter && <Filter setItemOffset={setItemOffset} setFilter={setFilter} />}
+
+            <button onClick={() => setFilter(!filter)} className={styles.filterBtn}>
+              <Image
+                src="/assets/filter.png"
+                alt="filter"
+                width={25}
+                height={25}
+              />
+            </button>
             <div className={styles.grid}>
-              <Prev/>
+              <Prev />
               <div className={styles.gridCard}>
-                  {currentCard.map((card: { id: Key | null | undefined }) => (
-                    <Card key={card.id} card={card} />
-                  ))}
+                {currentCard.map((card: { id: Key | null | undefined }) => (
+                  <Card key={card.id} card={card} />
+                ))}
               </div>
             </div>
             <ReactPaginate

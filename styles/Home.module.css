@@ -135,6 +135,10 @@
   color: rgb(7, 27, 80)!important;
 }
 
+.filterBtn{
+  padding: 4px 8px 1px 8px;
+}
+
 @media (max-width: 600px) {
   .grid {
     width: 100%;

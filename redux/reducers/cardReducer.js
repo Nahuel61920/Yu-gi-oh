@@ -93,7 +93,7 @@ export const cardSlice = createSlice({
       state.cards = raceCard;
     },
     sortForDef: (state, { type, payload }) => {
-      if (payload === "min") {
+      if (payload === "minDef") {
         state.cards = state.cards.sort((a, b) => a.def - b.def);
       } else {
         state.cards = state.cards.sort((a, b) => b.def - a.def);
@@ -105,7 +105,7 @@ export const cardSlice = createSlice({
     },
 
     sortForAtk: (state, { type, payload }) => {
-      if (payload === "min") {
+      if (payload === "minAtk") {
         state.cards = state.cards.sort(
           (a, b) => a.atk - b.atk
         );
@@ -121,7 +121,7 @@ export const cardSlice = createSlice({
     },
 
     sortForLevel: (state, { type, payload }) => {
-      if (payload === "min") {
+      if (payload === "minLevel") {
         state.cards = state.cards.sort(
           (a, b) => a.level - b.level
         );
