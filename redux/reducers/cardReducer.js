@@ -181,6 +181,12 @@ export const fetchDetail = (id) => (dispatch) => {
     .catch((err) => console.log(err));
 };
 
+
+export const cleanState = () => (dispatch) => {
+  dispatch(cardDetail([]));
+  dispatch(selectCardPrev([]));
+};
+
 export const searchName = (name) => (dispatch) => {
   try {
     dispatch(nameCard(name));

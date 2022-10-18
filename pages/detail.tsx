@@ -1,11 +1,24 @@
+import { useEffect } from "react";
 import type { NextPage } from "next";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { cleanState } from "../redux/reducers/cardReducer";
+
 import Head from "next/head";
 
 import deta from "../styles/Detail.module.css";
 
 const Detail: NextPage = () => {
     const { details } = useSelector((state: any) => state.card);
+    const dispatch: any = useDispatch();
+
+    console.log(details);
+    
+
+    useEffect(() => {
+        return () => {
+            dispatch(cleanState());
+        };
+    }, []);
 
     var star: any = [];
 
@@ -17,7 +30,6 @@ const Detail: NextPage = () => {
         null
     }
 
-    console.log(star);
     return (
         <div className={deta.container}>
             <Head>

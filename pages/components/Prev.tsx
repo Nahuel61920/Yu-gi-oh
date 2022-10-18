@@ -45,7 +45,7 @@ const Prev: NextPage = () => {
                         }
                         <h3>[ {preview.type.split(" ").join(" / ")} ]</h3>
                         <Link href={`/detail`} as={`/${preview.id}`}>
-                            <button className={prev.btn} onClick={() => dispatch(fetchDetail(preview.id))}>Detail</button>
+                            <button className={prev.btn} onClick={() => dispatch(fetchDetail(preview.id))}>See more</button>
                         </Link>
                     </div>
                 ) : (

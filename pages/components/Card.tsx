@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import type { NextPage } from 'next';
 import {
     selectCard,
+    cleanState
 } from "../../redux/reducers/cardReducer";
 
 const Card: NextPage = ({ card }: any) => {
@@ -10,7 +11,10 @@ const Card: NextPage = ({ card }: any) => {
 
     const handlePreview = (e: any) => {
         e.preventDefault();
-        dispatch(selectCard(card));
+        dispatch(cleanState());
+        setTimeout(() => {
+            dispatch(selectCard(card));
+        }, 100);
     }
 
     return (

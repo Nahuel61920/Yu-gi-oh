@@ -53,15 +53,17 @@ const Home: NextPage = () => {
         {cards.length ? (
           <>
             {filter && <Filter setItemOffset={setItemOffset} setFilter={setFilter} />}
-
-            <button onClick={() => setFilter(!filter)} className={styles.filterBtn}>
-              <Image
-                src="/assets/filter.png"
-                alt="filter"
-                width={25}
-                height={25}
-              />
-            </button>
+            <div className={styles.subTitles}>
+              <h2>Preview</h2>
+              <button onClick={() => setFilter(!filter)} className={styles.filterBtn}>
+                <Image
+                  src="/assets/filter.png"
+                  alt="filter"
+                  width={25}
+                  height={25}
+                />
+              </button>
+            </div>
             <div className={styles.grid}>
               <Prev />
               <div className={styles.gridCard}>
