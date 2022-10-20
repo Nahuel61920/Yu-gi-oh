@@ -57,7 +57,7 @@ export const cardSlice = createSlice({
       let raceCard =
         payload === "All"
           ? state.cardsFiltered
-          : state.cards.filter((cardsFiltered) => {
+          : state.cardsFiltered.filter((cardsFiltered) => {
               return cardsFiltered.race.includes(
                 payload
               );
