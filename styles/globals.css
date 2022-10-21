@@ -209,10 +209,14 @@ select{
 .btn-close{
   height: auto;
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
 }
 
 .btn-close button{
   padding: 4px 8px;
 
+}
+
+.set{
+  max-width: 220px;
 }

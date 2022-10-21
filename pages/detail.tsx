@@ -98,7 +98,7 @@ const Detail: NextPage = () => {
                                         details.card_sets.map((set: any, index: number) => (
                                             <div key={index} className={"set"}>
                                                 <Image 
-                                                    src={"/assets/set/" + set.set_name.split(" ").join("-").split(":").join("").split("'").join("").split("(").join("").split(")").join("").split("!").join("").toLowerCase() + ".png"}
+                                                    src={"/assets/set/" + set.set_name.split(" ").join("-").split(":").join("").split("'").join("").split("(").join("").split(")").join("").split("!").join("").toLowerCase() + ".webp"}
                                                     alt="filter"
                                                     width={210}
                                                     height={400}
