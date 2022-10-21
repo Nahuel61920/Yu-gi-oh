@@ -3,6 +3,8 @@ import type { NextPage } from "next";
 import { useDispatch, useSelector } from "react-redux";
 import { cleanState } from "../redux/reducers/cardReducer";
 
+import Image from "next/image";
+
 import Head from "next/head";
 
 import deta from "../styles/Detail.module.css";
@@ -14,11 +16,11 @@ const Detail: NextPage = () => {
     console.log(details);
     
 
-    useEffect(() => {
+    /* useEffect(() => {
         return () => {
             dispatch(cleanState());
         };
-    }, []);
+    }, []); */
 
     var star: any = [];
 
@@ -94,7 +96,13 @@ const Detail: NextPage = () => {
                                 {
                                     details.card_sets ? (
                                         details.card_sets.map((set: any, index: number) => (
-                                            <div key={index} className={deta.set}>
+                                            <div key={index} className={"set"}>
+                                                <Image 
+                                                    src={"/assets/set/" + set.set_name.split(" ").join("-").split(":").join("").split("'").join("").split("(").join("").split(")").join("").split("!").join("").toLowerCase() + ".png"}
+                                                    alt="filter"
+                                                    width={210}
+                                                    height={400}
+                                                />
                                                 <p className={deta.stats}>
                                                     {set.set_name}
                                                 </p>
