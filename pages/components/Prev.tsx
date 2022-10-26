@@ -1,7 +1,9 @@
 import styles from '../../styles/Home.module.css';
 import prev from '../../styles/prev.module.css';
 import {
-    fetchDetail
+    fetchDetail,
+    addDecks,
+    removeDecks,
 } from "../../redux/reducers/cardReducer";
 import { useDispatch, useSelector } from "react-redux";
 import type { NextPage } from 'next';
@@ -9,9 +11,22 @@ import Link from 'next/link';
 
 const Prev: NextPage = () => {
     const dispatch: any = useDispatch();
-    const { preview } = useSelector(
+    const { preview, deck } = useSelector(
         (state: any) => state.card
     );
+
+    console.log(deck);
+
+    const active = deck.find((item: any) => item.id === preview.id);
+
+    const handleDeck = (data: any) => {
+        const included = deck.find((item: any) => item.id === preview.id);
+        included && dispatch(removeDecks(data.id));
+        !included && dispatch(addDecks(data));
+    };
+
+
+    
     return (
         <div className={styles.gridPrev}>
             <div>
@@ -47,6 +62,9 @@ const Prev: NextPage = () => {
                         <Link href={`/detail`} as={`/${preview.id}`}>
                             <button className={prev.btn} onClick={() => dispatch(fetchDetail(preview.id))}>See more</button>
                         </Link>
+                        <button className={prev.btn} onClick={() => handleDeck(preview)}>{active ? "Remove from deck" : "Add to deck"}</button>
+
+
                     </div>
                 ) : (
                     <div className={styles.prevContainer}>

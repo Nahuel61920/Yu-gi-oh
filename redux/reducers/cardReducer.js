@@ -12,6 +12,7 @@ export const cardSlice = createSlice({
     raceMons: [],
     raceSpell: [],
     raceTrap: [],
+    deck: [],
   },
   reducers: {
     setCardList: (state, { type, payload }) => {
@@ -135,6 +136,14 @@ export const cardSlice = createSlice({
         return card.level > 0;
       });
     },
+    addDeck: (state, { type, payload }) => {
+      state.deck = [...state.deck, payload];
+    },
+    removeDeck: (state, { type, payload }) => {
+      state.deck = state.deck.filter((card) => {
+        return card.id !== payload;
+      });
+    }
   },
 });
 
@@ -154,7 +163,9 @@ export const {
     sortForDef,
     sortForAtk,
     sortForLevel,
-    cardDetail
+    cardDetail,
+    addDeck,
+    removeDeck,
 } = cardSlice.actions;
 
 export default cardSlice.reducer;
@@ -260,3 +271,12 @@ export const sortAtk = (payload) => (dispatch) => {
 export const sortLevel = (payload) => (dispatch) => {
   dispatch(sortForLevel(payload));
 };
+
+export const addDecks = (payload) => (dispatch) => {
+  dispatch(addDeck(payload));
+}
+
+export const removeDecks = (payload) => (dispatch) => {
+  dispatch(removeDeck(payload));
+  console.log("payload", payload);
+}

@@ -1,7 +1,5 @@
-import { useEffect } from "react";
 import type { NextPage } from "next";
-import { useDispatch, useSelector } from "react-redux";
-import { cleanState } from "../redux/reducers/cardReducer";
+import {useSelector } from "react-redux";
 
 import Image from "next/image";
 
@@ -11,22 +9,14 @@ import deta from "../styles/Detail.module.css";
 
 const Detail: NextPage = () => {
     const { details } = useSelector((state: any) => state.card);
-    const dispatch: any = useDispatch();
 
     console.log(details);
-    
-
-    /* useEffect(() => {
-        return () => {
-            dispatch(cleanState());
-        };
-    }, []); */
 
     var star: any = [];
 
     if (details.level) {
         for (let i = 0; i < details.level; i++) {
-            star = [...star, <span key={i} className={deta.star}>&#9733;</span>];
+            star = [...star, <Image key={i} src="/assets/star.png" width={30} height={30} />];
         }
     } else {
         null
@@ -41,84 +31,91 @@ const Detail: NextPage = () => {
             </Head>
             {
                 details.name ? (
+                    <>
                     <div className={deta.card}>
-                        <div className={deta.card__img}>
-                        <img src={details.img} alt={details.name} />
-                        </div>
+                        <div className={deta.card_container}>
+                            <div className={deta.card__img}>
+                                <img src={details.img} alt={details.name} />
+                            </div>
 
-                        <div className={deta.cardInfo}>
-                            <h2>{details.name}</h2>
-                            {details.attribute ? (
-                                <div className={deta.containerAttribute}>
-                                    <div className={"prev " + details.attribute}></div>
-                                    <div>
-                                        <span className={deta.attributes}>
-                                            {details.attribute.toLowerCase()} -{" "}
-                                        </span>
-                                        <span className={deta.attributes}>{details.race}</span>
-                                    </div>
-                                </div>
-                            ) : (
-                                <div className={deta.containerAttribute}>
-                                    <div
-                                        className={"prev " + details.type.split(" ").join("-")}
-                                    ></div>
-                                    <span className={deta.attributes}>
-                                        {details.type === "Spell Card"
-                                            ? details.race.split("Spell").join("")
-                                            : details.race.split("Trap").join("")}
-                                    </span>
-                                </div>
-                            )}
-                            <h3>[ {details.type.split(" ").join(" / ")} ]</h3>
-                            <p>{details.description}</p>
-                            {
-                                details.level ? (
-                                    <div className={deta.containerStat}>
+                            <div className={deta.cardInfo}>
+                                <h2>{details.name}</h2>
+                                {details.attribute ? (
+                                    <div className={deta.containerAttribute}>
+                                        <div className={"prev " + details.attribute}></div>
                                         <div>
-                                            <span className={deta.stats}>
-                                                ATK: {details.atk}
+                                            <span className={deta.attributes}>
+                                                {details.attribute.toLowerCase()} -{" "}
                                             </span>
-                                            {" / "}
-                                            <span className={deta.stats}>
-                                                DEF: {details.def}
-                                            </span>
-                                        </div>
-                                        <div className={deta.level}>
-                                            <span className={deta.stats}>
-                                                Level: {star}
-                                            </span>
+                                            <span className={deta.attributes}>{details.race}</span>
                                         </div>
                                     </div>
-                                ) : null
-                            }
-                            <div className={deta.containerSet}>
+                                ) : (
+                                    <div className={deta.containerAttribute}>
+                                        <div
+                                            className={"prev " + details.type.split(" ").join("-")}
+                                        ></div>
+                                        <span className={deta.attributes}>
+                                            {details.type === "Spell Card"
+                                                ? details.race.split("Spell").join("")
+                                                : details.race.split("Trap").join("")}
+                                        </span>
+                                    </div>
+                                )}
+                                <h3>[ {details.type.split(" ").join(" / ")} ]</h3>
+                                <p>{details.description}</p>
                                 {
-                                    details.card_sets ? (
-                                        details.card_sets.map((set: any, index: number) => (
-                                            <div key={index} className={"set"}>
-                                                <Image 
-                                                    src={"/assets/set/" + set.set_name.split(" ").join("-").split(":").join("").split("'").join("").split("(").join("").split(")").join("").split("!").join("").toLowerCase() + ".webp"}
-                                                    alt="filter"
-                                                    width={210}
-                                                    height={400}
-                                                />
-                                                <p className={deta.stats}>
-                                                    {set.set_name}
-                                                </p>
-                                                <p className={deta.stats}>
-                                                    {set.set_rarity}
-                                                </p>
-                                                <p className={deta.stats}>
-                                                    ${set.set_price}
-                                                </p>
+                                    details.level ? (
+                                        <div className={deta.containerStat}>
+                                            <div>
+                                                <span className={deta.stats}>
+                                                    ATK: {details.atk}
+                                                </span>
+                                                {" / "}
+                                                <span className={deta.stats}>
+                                                    DEF: {details.def}
+                                                </span>
                                             </div>
-                                        ))
+                                            <div className={deta.level}>
+                                                {star}
+                                            </div>
+                                        </div>
                                     ) : null
                                 }
                             </div>
                         </div>
+
+                        
+                        <div className={deta.containerSet}>
+                            <h2>Set</h2>
+                            <div className={deta.set_img}>
+                            {
+                                details.card_sets ? (
+                                    details.card_sets.map((set: any, index: number) => (
+                                        <div key={index} className={"set"}>
+                                            <Image 
+                                                src={"/assets/set/" + set.set_name.split(" ").join("-").split(":").join("").split("'").join("").split("(").join("").split(")").join("").split("!").join("").toLowerCase() + ".webp"}
+                                                alt="filter"
+                                                width={210}
+                                                height={400}
+                                            />
+                                            <p className={deta.stats}>
+                                                {set.set_name}
+                                            </p>
+                                            <p className={deta.stats}>
+                                                {set.set_rarity}
+                                            </p>
+                                            <p className={deta.stats}>
+                                                ${set.set_price}
+                                            </p>
+                                        </div>
+                                    ))
+                                ) : null
+                            }
+                            </div>
+                        </div>
                     </div>
+                    </>
                 ) : null
             }
         </div>

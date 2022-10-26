@@ -5,15 +5,19 @@
     justify-content: center;
     text-align: center;
     background: url(../public/assets/Detail.jpg);
+    background-attachment: fixed;
     margin: 0;
     min-height: 100vh;
 }
 
 .card{
+    padding: 2rem 5rem;
+}
+
+.card_container{
     display: flex;
     justify-content: space-between;
     gap: 40px;
-    padding: 1rem 5rem;
 }
 
 .card .card__img{
@@ -54,7 +58,7 @@
     gap: 10px;
 }
 
-.containerSet{
+.set_img{
     display: flex;
     flex-direction: row;
     align-items: center;
