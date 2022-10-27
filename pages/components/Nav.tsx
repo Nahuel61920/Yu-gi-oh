@@ -1,7 +1,10 @@
 import { useState, useEffect } from "react";
 import styles from "../../styles/Nav.module.css";
-import { fetchCard, searchName } from "../../redux/reducers/cardReducer";
-import { useDispatch, useSelector } from "react-redux";
+import { searchName } from "../../redux/reducers/cardReducer";
+import { useDispatch } from "react-redux";
+
+import Link from 'next/link';
+
 
 function Nav() {
   const dispatch: any = useDispatch();
@@ -14,7 +17,9 @@ function Nav() {
   return (
     <div className={styles.navContainer}>
       <nav className={styles.nav}>
-        <div className={styles.navLogo}></div>
+        <Link href="/">
+          <div className={styles.navLogo}></div>
+        </Link>
         <div className={styles.searchBar}>
           <input
             type="text"
@@ -32,6 +37,11 @@ function Nav() {
             </svg>
           </button>
         </div>
+        <Link href={`/deck`}>
+          <button className={styles.deckBtn}>
+            Deck
+          </button>
+        </Link>
       </nav>
     </div>
   );

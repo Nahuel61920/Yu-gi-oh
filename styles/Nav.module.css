@@ -3,9 +3,12 @@
     height: 100px;
     background: url(../public/assets/nav.png);
     margin: 0;
-    padding: 0 4rem;
+    padding: 0 5rem;
     display: flex;
     align-items: center;
+    position: absolute;
+    z-index: 1;
+    top: 0;
 }
 
 .nav{
@@ -33,7 +36,7 @@
 
 .searchInput{
     position: absolute;
-    right: 0;
+    right: 130px;
     width: 20%;
     height: 42.5px;
     outline: 0;
@@ -59,7 +62,7 @@
     width: 42.5px;
     height: 42.5px;
     position: absolute;
-    right: 0;
+    right: 100px;
     text-align: center;
     font-size: 1.2em;
     transition: all 0.2s ease-in-out;

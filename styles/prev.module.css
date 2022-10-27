@@ -11,6 +11,32 @@
     text-transform: capitalize;
 }
 
+.containerBtn{
+    position: absolute;
+    top: 1rem;
+    right: 4rem;
+    width: 40px;
+    height: 80px;
+}
+
+.containerBtn img{
+    max-width: 40px;
+    max-height: 40px;
+    cursor: pointer;
+    padding: 10px 0;
+}
+
+.msg{
+    position: absolute;
+    top: 10rem;
+}
+
+.msg p{
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
 /*** flip ***/
 
 

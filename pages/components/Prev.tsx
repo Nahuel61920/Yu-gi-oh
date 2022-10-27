@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import styles from '../../styles/Home.module.css';
 import prev from '../../styles/prev.module.css';
 import {
@@ -9,6 +10,8 @@ import { useDispatch, useSelector } from "react-redux";
 import type { NextPage } from 'next';
 import Link from 'next/link';
 
+import Image from "next/image";
+
 const Prev: NextPage = () => {
     const dispatch: any = useDispatch();
     const { preview, deck } = useSelector(
@@ -18,13 +21,22 @@ const Prev: NextPage = () => {
     console.log(deck);
 
     const active = deck.find((item: any) => item.id === preview.id);
+    
+
+    const [msg, setMsg] = useState("");
+
+    setTimeout(() => {
+        setMsg("");
+    }, 4000);
 
     const handleAddDeck = (data: any) => {
         dispatch(addDecks(data));
+        setMsg("Added to deck");
     };
 
     const handleRemoveDeck = (data: any) => {
         dispatch(removeDecks(data.id));
+        setMsg("Removed from deck");
     };
 
 
@@ -61,20 +73,32 @@ const Prev: NextPage = () => {
                             )
                         }
                         <h3>[ {preview.type.split(" ").join(" / ")} ]</h3>
+                        
+                        {
+                            msg ? (
+                                <div className={prev.msg}>
+                                    <p>{msg}</p>
+                                </div>
+                            ) : (
+                                null
+                            )
+                        }
+                        
                         <Link href={`/detail`} as={`/${preview.id}`}>
                             <button className={prev.btn} onClick={() => dispatch(fetchDetail(preview.id))}>See more</button>
                         </Link>
                         {
                             !active ? (
-                                <button className={prev.btn} onClick={() => handleAddDeck(preview)}>Add to deck</button>
+                                <div className={prev.containerBtn}>
+                                    <Image src="/assets/up.png" width={30} height={30} onClick={() => handleAddDeck(preview)}/>
+                                </div>
                             ) : (
                                 <div className={prev.containerBtn}>
-                                    <button className={prev.btn} onClick={() => handleAddDeck(preview)}>Add to deck</button>
-                                    <button className={prev.btn} onClick={() => handleRemoveDeck(preview)}>Remove from deck</button>
+                                    <Image src="/assets/up.png" width={30} height={30} onClick={() => handleAddDeck(preview)}/>
+                                    <Image src="/assets/down.png" width={30} height={30} onClick={() => handleRemoveDeck(preview)}/>
                                 </div>
                             )
                         }
-
                     </div>
                 ) : (
                     <div className={styles.prevContainer}>
