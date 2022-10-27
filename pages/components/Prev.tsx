@@ -19,10 +19,12 @@ const Prev: NextPage = () => {
 
     const active = deck.find((item: any) => item.id === preview.id);
 
-    const handleDeck = (data: any) => {
-        const included = deck.find((item: any) => item.id === preview.id);
-        included && dispatch(removeDecks(data.id));
-        !included && dispatch(addDecks(data));
+    const handleAddDeck = (data: any) => {
+        dispatch(addDecks(data));
+    };
+
+    const handleRemoveDeck = (data: any) => {
+        dispatch(removeDecks(data.id));
     };
 
 
@@ -62,8 +64,16 @@ const Prev: NextPage = () => {
                         <Link href={`/detail`} as={`/${preview.id}`}>
                             <button className={prev.btn} onClick={() => dispatch(fetchDetail(preview.id))}>See more</button>
                         </Link>
-                        <button className={prev.btn} onClick={() => handleDeck(preview)}>{active ? "Remove from deck" : "Add to deck"}</button>
-
+                        {
+                            !active ? (
+                                <button className={prev.btn} onClick={() => handleAddDeck(preview)}>Add to deck</button>
+                            ) : (
+                                <div className={prev.containerBtn}>
+                                    <button className={prev.btn} onClick={() => handleAddDeck(preview)}>Add to deck</button>
+                                    <button className={prev.btn} onClick={() => handleRemoveDeck(preview)}>Remove from deck</button>
+                                </div>
+                            )
+                        }
 
                     </div>
                 ) : (
