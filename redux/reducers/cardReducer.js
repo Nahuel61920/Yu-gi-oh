@@ -140,12 +140,8 @@ export const cardSlice = createSlice({
       state.deck = [...state.deck, payload];
     },
     removeDeck: (state, { type, payload }) => {//remover el primer elemento que encuetre
-      const find = state.deck.findIndex((card) => card.id === payload.id);
-      state.deck.splice(find);
-
-      state.deck = state.deck.filter((card) => {
-        return card.id !== payload.id;
-      });
+      const find = state.deck.findIndex((card) => card.id === payload);
+      state.deck.splice(find, 1);
     },
   },
 });

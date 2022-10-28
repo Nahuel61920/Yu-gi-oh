@@ -31,7 +31,8 @@
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  width: 70%;
+  min-width: 55em;
+  max-width: 55em;
 }
 
 .card {

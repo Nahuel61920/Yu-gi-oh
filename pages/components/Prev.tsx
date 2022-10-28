@@ -30,8 +30,12 @@ const Prev: NextPage = () => {
     }, 4000);
 
     const handleAddDeck = (data: any) => {
-        dispatch(addDecks(data));
-        setMsg("Added to deck");
+        if (deck.length < 30) {
+            dispatch(addDecks(data));
+            setMsg("Card added to deck");
+        } else {
+            setMsg("Deck is full");
+        }
     };
 
     const handleRemoveDeck = (data: any) => {

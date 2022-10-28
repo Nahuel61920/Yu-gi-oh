@@ -17,7 +17,7 @@ const Detail: NextPage = () => {
     const { deck } = useSelector((state: any) => state.card);
 
     return (
-        <div className={deta.container}>
+        <div className={deta.container_deck}>
             <Head>
                 <title>Yu-gi-oh</title>
                 <meta name="description" content="Deck" />
