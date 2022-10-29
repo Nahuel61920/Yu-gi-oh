@@ -25,13 +25,32 @@ const Detail: NextPage = () => {
             </Head>
             <Nav />
             <main className={styles.main}>
-                <h2 className={styles.title}>Deck</h2>
+                <h2>
+                    <span>デッキ</span>
+                    <span>Deck</span>
+                </h2>
                 <div className={styles.grid}>
                     <Prev />
                     <div className={styles.gridCard}>
-                        {deck.map((card: { id: Key | null | undefined }) => (
-                            <Card key={card.id} card={card} />
-                        ))}
+                        {
+                            deck.length ? deck.map((card: any, index: Key) => {
+                                return (
+                                    <Card key={index} card={card} />
+                                )
+                            }) : (
+                                <div>
+                                    <div className={styles.noCard}>
+                                        <h2>
+                                            <span>ノーデッキ</span>
+                                            <span>No Deck</span>
+                                        </h2>
+                                    </div>
+                                    <h3 className={styles.title}>
+                                        Please add cards to the deck
+                                    </h3>
+                                </div>
+                            )
+                        }
                     </div>
                 </div>
             </main>

@@ -52,19 +52,23 @@ const Prev: NextPage = () => {
                 preview.name ? (
                     <div className={styles.prevContainer}>
                         <img src={preview.img} alt={preview.name} className={preview.name? prev.show : prev.hide}/>
-                        <h3>Name: {preview.name}</h3>
+                        <h4 className={styles.title}>
+                            Name: {preview.name}
+                        </h4>
                         {
                             preview.attribute ? (
                                 <div className={prev.containerAttribute}>
                                     <div className={"prev " + preview.attribute}></div>
                                     <div>
-                                        <span className={prev.attributes}>{preview.attribute.toLowerCase()} - </span><span className={prev.attributes}>{preview.race}</span>
+                                        <h4 className={styles.title}>
+                                            {preview.attribute.toLowerCase()} - {preview.race}
+                                        </h4>
                                     </div>
                                 </div>
                             ) : (
                                 <div className={prev.containerAttribute}>
                                     <div className={"prev " + preview.type.split(" ").join("-")}></div>
-                                    <span className={prev.attributes}>
+                                    <h4 className={styles.title}>
                                         {
                                             preview.type === "Spell Card" ? (
                                                 preview.race.split("Spell").join("")
@@ -72,11 +76,13 @@ const Prev: NextPage = () => {
                                                 preview.race.split("Trap").join("")
                                             )
                                         }
-                                    </span>
+                                    </h4>
                                 </div>
                             )
                         }
-                        <h3>[ {preview.type.split(" ").join(" / ")} ]</h3>
+                        <h4 className={styles.title}>
+                            [ {preview.type.split(" ").join(" / ")} ]
+                        </h4>
                         
                         {
                             msg ? (

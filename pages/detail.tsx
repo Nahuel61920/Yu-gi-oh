@@ -6,6 +6,7 @@ import Image from "next/image";
 import Head from "next/head";
 
 import deta from "../styles/Detail.module.css";
+import styles from "../styles/Home.module.css";
 
 const Detail: NextPage = () => {
     const { details } = useSelector((state: any) => state.card);
@@ -39,15 +40,14 @@ const Detail: NextPage = () => {
                             </div>
 
                             <div className={deta.cardInfo}>
-                                <h2>{details.name}</h2>
+                                <h2 className={styles.titleDetail}>{details.name}</h2>
                                 {details.attribute ? (
                                     <div className={deta.containerAttribute}>
                                         <div className={"prev " + details.attribute}></div>
                                         <div>
-                                            <span className={deta.attributes}>
-                                                {details.attribute.toLowerCase()} -{" "}
-                                            </span>
-                                            <span className={deta.attributes}>{details.race}</span>
+                                            <h3 className={styles.title}>
+                                                {details.attribute.toLowerCase()} -{" "}{details.race}
+                                            </h3>
                                         </div>
                                     </div>
                                 ) : (
@@ -55,14 +55,14 @@ const Detail: NextPage = () => {
                                         <div
                                             className={"prev " + details.type.split(" ").join("-")}
                                         ></div>
-                                        <span className={deta.attributes}>
+                                        <h3 className={styles.title}>
                                             {details.type === "Spell Card"
                                                 ? details.race.split("Spell").join("")
                                                 : details.race.split("Trap").join("")}
-                                        </span>
+                                        </h3>
                                     </div>
                                 )}
-                                <h3>[ {details.type.split(" ").join(" / ")} ]</h3>
+                                <h3 className={styles.title}>[ {details.type.split(" ").join(" / ")} ]</h3>
                                 <p>{details.description}</p>
                                 {
                                     details.level ? (
@@ -86,8 +86,11 @@ const Detail: NextPage = () => {
                         </div>
 
                         
-                        <div className={deta.containerSet}>
-                            <h2>Set</h2>
+                        <div className={styles.mainDetail}>
+                            <h2>
+                                <span>設定</span>
+                                <span>Set</span>
+                            </h2>
                             <div className={deta.set_img}>
                             {
                                 details.card_sets ? (

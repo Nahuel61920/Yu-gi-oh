@@ -54,7 +54,10 @@ const Home: NextPage = () => {
           <>
             {filter && <Filter setItemOffset={setItemOffset} setFilter={setFilter} />}
             <div className={styles.subTitles}>
-              <h2>Preview</h2>
+              <h2>
+                <span>プレビュー</span>
+                <span>Preview</span>
+              </h2>
               <button onClick={() => setFilter(!filter)} className={styles.filterBtn}>
                 <Image
                   src="/assets/filter.png"

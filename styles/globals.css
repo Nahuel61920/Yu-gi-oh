@@ -1,3 +1,8 @@
+@font-face {
+  font-family: 'Yu-Gi-Oh';
+  src: url(../font/squeale.ttf);
+}
+
 html,
 body {
   padding: 0!important;
@@ -20,6 +25,58 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Yu-Gi-Oh';
+  position: relative;
+  margin: .6rem 0;
+  letter-spacing: 0.02em;
+  text-align: center;
+  color: red;
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 2.3rem;
+}
+
+h3 {
+  font-size: 1.8rem;
+}
+
+h4 {
+  font-size: 1.25rem;
+}
+
+h1::after, h2::after, h3::after, h4::after {
+  content: '';
+    position: absolute;
+    top: -0.1em;
+    right: 50%;
+    width: 0.4em;
+    height: 0.4em;
+    background-repeat: no-repeat;
+}
+
+h1 span:first-child, h2 span:first-child, h3 span:first-child, h4 span:first-child {
+  font-size: 0.8em;
+  display: flex;
+  justify-content: center;
+  -webkit-text-stroke: 0.1px rgb(145, 18, 18);
+}
+
+h1 span:last-child, h2 span:last-child, h3 span:last-child, h4 span:last-child {
+  position: absolute;
+    left: 12%;
+    top: 0;
+    background-image: linear-gradient(rgb(189, 194, 198) 10%, rgb(199, 203, 206) 20%, rgb(189, 194, 198) 30%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: 0.6px rgb(0, 0, 0);
 }
 
 .prev {
@@ -172,7 +229,7 @@ select{
 .select-filter:focus{
     background-image:
     linear-gradient(45deg, rgb(255, 254, 254) 50%, transparent 50%),
-      linear-gradient(135deg, transparent 50%, rgb(255, 255, 255) 50%),
+      linear-gradient(135deg, transparent 50%, rgb(199, 203, 206) 50%),
     linear-gradient(to right, rgb(19, 119, 158), rgb(19, 119, 158));
     background-position:
     calc(100% - 7px) 1em,
