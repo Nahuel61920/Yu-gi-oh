@@ -14,6 +14,8 @@ import {
     sortLevel,
 } from "../../redux/reducers/cardReducer";
 
+import styles from '../../styles/Home.module.css';
+
 function Filter({ setItemOffset, setFilter }: any) {
     const dispatch: any = useDispatch();
     const { types, raceMons, raceSpell, raceTrap } = useSelector(
@@ -80,7 +82,7 @@ function Filter({ setItemOffset, setFilter }: any) {
                 <div className="filter">
                     <div className="filters">
                         <div>
-                            <h3>Types</h3>
+                            <h3 className={styles.title}>Type</h3>
                             <div className="filter-type">
                                 {types && (
                                     <select
@@ -103,7 +105,7 @@ function Filter({ setItemOffset, setFilter }: any) {
                         </div>
 
                         <div>
-                            <h3>Monster</h3>
+                            <h3 className={styles.title}>Monster</h3>
                             <div className="filter-monster">
                                 {raceMons && (
                                     <select
@@ -126,7 +128,7 @@ function Filter({ setItemOffset, setFilter }: any) {
                         </div>
 
                         <div>
-                            <h3>Spell</h3>
+                            <h3 className={styles.title}>Spell</h3>
                             <div className="filter-spell">
                                 {raceSpell && (
                                     <select
@@ -149,7 +151,7 @@ function Filter({ setItemOffset, setFilter }: any) {
                         </div>
 
                         <div>
-                            <h3>Trap</h3>
+                            <h3 className={styles.title}>Trap</h3>
                             <div className="filter-trap">
                                 {raceTrap && (
                                     <select
@@ -174,7 +176,7 @@ function Filter({ setItemOffset, setFilter }: any) {
 
                     <div className="sort">
                         <div className="sorts">
-                            <h3>Defense</h3>
+                            <h3 className={styles.title}>Defense</h3>
                             <div className="sort-btn">
                                 <button value="minDef" onClick={(e) => handleSort(e)}>
                                     Min
@@ -187,7 +189,7 @@ function Filter({ setItemOffset, setFilter }: any) {
 
 
                         <div className="sorts">
-                            <h3>Attack</h3>
+                            <h3 className={styles.title}>Attack</h3>
                             <div className="sort-btn">
                                 <button value="minAtk" onClick={(e) => handleSort(e)}>
                                     Min
@@ -199,7 +201,7 @@ function Filter({ setItemOffset, setFilter }: any) {
                         </div>
 
                         <div className="sorts">
-                            <h3>Level</h3>
+                            <h3 className={styles.title}>Level</h3>
                             <div className="sort-btn">
                                 <button value="minLevel" onClick={(e) => handleSort(e)}>
                                     Min

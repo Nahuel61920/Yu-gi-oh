@@ -12,6 +12,7 @@
 
 .container{
     background: url(../public/assets/Detail.jpg);
+    background-attachment: fixed;
 }
 
 .container_deck{
