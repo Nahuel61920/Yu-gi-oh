@@ -31,8 +31,15 @@ const Prev: NextPage = () => {
 
     const handleAddDeck = (data: any) => {
         if (deck.length < 30) {
-            dispatch(addDecks(data));
-            setMsg("Card added to deck");
+            // agregar un maximo de 3 cartas por id a deck
+            const count = deck.filter((item: any) => item.id === data.id);
+
+            if (count.length < 3) {
+                dispatch(addDecks(data));
+                setMsg("Added to Deck");
+            } else {
+                setMsg("You can only add 3 cards");
+            }
         } else {
             setMsg("Deck is full");
         }

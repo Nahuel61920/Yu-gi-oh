@@ -48,6 +48,12 @@ const Detail: NextPage = () => {
                                     <h3 className={styles.title}>
                                         Please add cards to the deck
                                     </h3>
+                                    <h3 className={styles.title}>
+                                        Add the card to the deck by clicking on <Image src="/assets/up.png" width={30} height={30} />
+                                    </h3>
+                                    <h3 className={styles.title}>
+                                        Remove the card from the deck by clicking on <Image src="/assets/down.png" width={30} height={30} />
+                                    </h3>
                                 </div>
                             )
                         }
