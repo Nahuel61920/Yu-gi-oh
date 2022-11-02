@@ -9,7 +9,7 @@ var cors = require('cors')
 const app = express();
 app.use(express.json()); // middleware que transforma el body en un objeto json
 
-const port = 3001;
+app.set("port", process.env.PORT || 3001);
 
 app.get('/', (_req, res) => {
     console.log('GET /');
@@ -22,6 +22,8 @@ app.use('/card', card);
 app.use('/races', races);
 app.use('/types', types)
 
-app.listen(port, () => {
-    console.log(`Example app listening at http://localhost:${port}`);
+const host = process.env.HOST || "0.0.0.0";
+
+app.listen(app.get("port"), host, () => {
+    console.log("Ya me levanté");
 });
