@@ -25,5 +25,5 @@ app.use('/types', types)
 const host = process.env.HOST || "0.0.0.0";
 
 app.listen(app.get("port"), host, () => {
-    console.log("Ya me levanté");
+    console.log("Ya me levanté EN EL PUERTO: " + app.get("port"));
 });
