@@ -35,7 +35,7 @@ const Detail: NextPage = () => {
                         {
                             deck.length ? deck.map((card: any, index: Key) => {
                                 return (
-                                    <Card key={index} card={card} />
+                                    <Card key={index} {...card} />
                                 )
                             }) : (
                                 <div>

@@ -1,6 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
+axios.defaults.baseURL = process.env.REACT_APP_API || "http://localhost:3001";
+
 export const cardSlice = createSlice({
   name: "card",
   initialState: {
@@ -171,7 +173,7 @@ export default cardSlice.reducer;
 
 export const fetchCard = () => (dispatch) => {
   axios
-    .get("http://localhost:3001/card")
+    .get("/card")
     .then((res) => {
       dispatch(setCardList(res.data));
     })
@@ -184,7 +186,7 @@ export const selectCard = (id) =>  (dispatch) => {
 
 export const fetchDetail = (id) => (dispatch) => {
   axios
-    .get(`http://localhost:3001/card/${id}`)
+    .get(`/card/${id}`)
     .then((res) => {
       dispatch(cardDetail(res.data));
     })
@@ -207,7 +209,7 @@ export const searchName = (name) => (dispatch) => {
 
 export const typesCard = (id) => (dispatch) => {
   axios
-    .get(`http://localhost:3001/types`)
+    .get(`/types`)
     .then((res) => {
       dispatch(allCardTypes(res.data));
     })
@@ -220,7 +222,7 @@ export const typesFilter = (payload) => (dispatch) => {
 
 export const racesMonsterCard = (id) => (dispatch) => {
   axios
-    .get(`http://localhost:3001/races/monster`)
+    .get(`/races/monster`)
     .then((res) => {
       dispatch(allCardRacesMonster(res.data));
     })
@@ -235,7 +237,7 @@ export const racesMonsterFilter = (payload) => (dispatch) => {
 
 export const racesSpellCard = (id) => (dispatch) => {
   axios
-    .get(`http://localhost:3001/races/spell`)
+    .get(`/races/spell`)
     .then((res) => {
       dispatch(allCardRacesSpell(res.data));
     })
@@ -248,7 +250,7 @@ export const racesSpellFilter = (payload) => (dispatch) => {
 
 export const racesTrapCard = (id) => (dispatch) => {
   axios
-    .get(`http://localhost:3001/races/trap`)
+    .get(`/races/trap`)
     .then((res) => {
       dispatch(allCardRacesTrap(res.data));
     })

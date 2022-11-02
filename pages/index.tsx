@@ -70,9 +70,9 @@ const Home: NextPage = () => {
             <div className={styles.grid}>
               <Prev />
               <div className={styles.gridCard}>
-                {currentCard.map((card: { id: Key | null | undefined }) => (
-                  <Card key={card.id} card={card} />
-                ))}
+                {currentCard.map((card: any, index: Key) => 
+                  <Card key={index} {...card} />
+                )}
               </div>
             </div>
             <ReactPaginate

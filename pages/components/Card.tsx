@@ -6,7 +6,7 @@ import {
     cleanState
 } from "../../redux/reducers/cardReducer";
 
-const Card: NextPage = ({ card }: any) => {
+const Card: NextPage = (card: any) => {
     const dispatch: any = useDispatch();
 
     const handlePreview = (e: any) => {
