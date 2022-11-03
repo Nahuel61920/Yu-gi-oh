@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
-axios.defaults.baseURL = "https://yu-gi-oh-app.onrender.com" || "http://localhost:3001";
+axios.defaults.baseURL = "https://yu-gi-oh-production.up.railway.app" || "http://localhost:3001";
 
 export const cardSlice = createSlice({
   name: "card",
