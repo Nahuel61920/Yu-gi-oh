@@ -41,7 +41,7 @@
   justify-content: center;
   flex-wrap: wrap;
   min-width: 55em;
-  max-width: 55em;
+  max-width: 70%;
 }
 
 .card {
